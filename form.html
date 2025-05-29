@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – Memórias de um Intercâmbio</title>
+  <link rel="stylesheet" href="geral.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=EB+Garamond&family=Montserrat&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <h1>Memórias de um Intercâmbio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="relatos.html">Relatos</a></li>
+        <li><a href="playlist.html">Playlist</a></li>
+        <li><a href="programa.html">Sobre o Programa</a></li>
+        <li><a href="form.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-contato">
+      <h2>Entre em Contato</h2>
+      <p>Quer conversar, tirar dúvidas ou mandar um recado? Preencha o formulário abaixo! 💌</p>
+    </section>
+
+    <section class="formulario-container">
+      <form action="https://formsubmit.co/seuemail@email.com" method="POST" class="formulario-contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Memórias de um Intercâmbio. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
