@@ -937,7 +937,7 @@ button {
 .imagem-centralizada {
   display: block;         /* Para que o margin auto funcione */
   margin: 0 auto 1.5rem;  /* Centraliza horizontalmente e adiciona espaço embaixo */
-  max-width: 300px;       /* Ajuste o tamanho máximo que quiser */
+  max-width: 700px;       /* Ajuste o tamanho máximo que quiser */
   width: 100%;            /* Para ficar responsivo */
   height: auto;           /* Mantém proporção */
   border-radius: 8px;     /* Borda arredondada opcional */
