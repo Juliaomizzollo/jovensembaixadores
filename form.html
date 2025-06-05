@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="relatos.html">Relatos</a></li>
+        <li><a href="memorias.html">Relatos</a></li>
         <li><a href="playlist.html">Playlist</a></li>
         <li><a href="programa.html">Sobre o Programa</a></li>
         <li><a href="form.html">Contato</a></li>
@@ -23,23 +23,26 @@
   </header>
 
   <main>
-    <section class="intro-contato">
-      <h2>Entre em Contato</h2>
-      <p>Quer conversar, tirar dúvidas ou mandar um recado? Preencha o formulário abaixo! 💌</p>
-    </section>
-
     <section class="formulario-container">
-      <form action="https://formsubmit.co/seuemail@email.com" method="POST" class="formulario-contato">
+      <form id="form-contato" class="formulario-contato" action="https://formsubmit.co/seuemail@email.com" method="POST">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
-
+    
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
-
+    
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(99) 99999-9999">
+    
         <label for="mensagem">Mensagem</label>
         <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
+    
         <button type="submit">Enviar</button>
+
+        <div id="mensagem-sucesso" style="display: none; color: green; margin-top: 1rem;">
+          ✅ Enviado com sucesso!
+
+        </div>
       </form>
     </section>
   </main>
@@ -47,6 +50,53 @@
   <footer>
     <p>&copy; 2025 Memórias de um Intercâmbio. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.getElementById("form-contato").addEventListener("submit", function(event) {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+  
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const regexTelefone = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+  
+      let erros = [];
+  
+      if (nome.length < 2) {
+        erros.push("Digite seu nome completo.");
+      }
+  
+      if (!regexEmail.test(email)) {
+        erros.push("Digite um e-mail válido.");
+      }
+  
+      if (!regexTelefone.test(telefone)) {
+        erros.push("Digite um telefone válido (ex: (63) 91234-5678).");
+      }
+  
+      if (mensagem.length < 5) {
+        erros.push("Escreva uma mensagem com pelo menos 5 caracteres.");
+      }
+  
+      if (erros.length > 0) {
+        event.preventDefault(); // Impede o envio
+        alert("Erros no formulário:\n\n" + erros.join("\n"));
+      }
+      <script>
+  const formulario = document.querySelector(".formulario-contato");
+  const mensagem = document.getElementById("mensagem-sucesso");
+
+  formulario.addEventListener("submit", function(evento) {
+    evento.preventDefault(); // impede o envio de verdade
+
+    // exibe a mensagem
+    mensagem.style.display = "block";
+
+    // limpa o formulário
+    formulario.reset();
+  });
+</script>
 
 </body>
 </html>
